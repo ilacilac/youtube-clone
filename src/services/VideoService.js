@@ -2,17 +2,10 @@ import axios from "axios";
 import { apiKey } from "../key";
 
 class VideoService {
-  constructor() {
-    this.getRequestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-  }
   async getVideos() {
     const response = await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=30&key=${apiKey}`,
-        this.getRequestOptions
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=30&key=${apiKey}`
       )
       .then((res) => res.data.items);
 
