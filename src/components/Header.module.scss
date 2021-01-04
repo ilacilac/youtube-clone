@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  vertical-align: middle;
+  color: #fff;
+  background: #202020;
+  .logo {
+    display: flex;
+    margin: 0 0 0 20px;
+    padding: 0;
+    align-items: center;
+    font-size: 1.2rem;
+    letter-spacing: -0.05rem;
+    img {
+      width: 25px;
+    }
+    span {
+      margin-left: 2px;
+    }
+  }
+  .headerMenu {
+    border: none;
+    color: #ffffff;
+    background: none;
+  }
+}
