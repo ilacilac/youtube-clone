@@ -5,7 +5,7 @@ const Main = (props) => {
   return (
     <>
       <main>
-        <h2>동영상 목록</h2>
+        <h2 className="a11y-hidden">동영상 목록</h2>
         <VideosListContainer />
       </main>
     </>

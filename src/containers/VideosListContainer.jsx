@@ -8,6 +8,7 @@ const VideosListContainer = (props) => {
   useEffect(() => {
     youtube.getVideos().then((videos) => setVideos(videos));
   }, []);
+  console.log(videos);
   return <VideosList videos={videos} />;
 };
 

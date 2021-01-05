@@ -5,7 +5,7 @@ class VideoService {
   async getVideos() {
     const response = await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=30&key=${apiKey}`
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=32&key=${apiKey}`
       )
       .then((res) => res.data.items);
 
