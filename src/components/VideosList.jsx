@@ -1,11 +1,18 @@
 import React from "react";
 import VideosListItem from "./VideosListItem";
 import styles from "./VideosList.module.scss";
+import classNames from "classnames/bind";
 
-const VideosList = ({ videos }) => {
+const cx = classNames.bind(styles);
+
+const VideosList = ({ videos, twoCol }) => {
   return (
-    <ul className={styles.videosWrap}>
-      <VideosListItem videos={videos} />
+    <ul
+      className={cx("videosWrap", {
+        twoCol,
+      })}
+    >
+      <VideosListItem videos={videos} twoCol={twoCol} />
     </ul>
   );
 };

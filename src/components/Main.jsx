@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import VideosListContainer from "../containers/VideosListContainer";
+import VideosList from "./VideosList";
 
-const Main = (props) => {
+const Main = ({ videos }) => {
+  console.log(videos);
   return (
     <>
       <main>
         <h2 className="a11y-hidden">동영상 목록</h2>
-        <VideosListContainer />
+        <VideosList videos={videos} />
       </main>
     </>
   );
