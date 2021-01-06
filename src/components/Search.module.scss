@@ -1,0 +1,17 @@
+.searchForm {
+  margin-left: 50px;
+  .searchBox {
+    outline: none;
+    color: #b3b3b3;
+    padding: 10px 10px;
+    border: 1px solid #303030;
+    background: #121212;
+  }
+  &::placeholder {
+    color: #b3b3b3;
+  }
+  .searchBtn {
+    padding: 10px 20px;
+    background: #303030;
+  }
+}

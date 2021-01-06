@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import VideosList from "./VideosList";
 
 const Main = ({ videos }) => {
-  console.log(videos);
   return (
     <>
       <main>

@@ -22,6 +22,14 @@ class VideoService {
     // });
     return response;
   }
+  async searchVideos(query) {
+    const response = await axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=32&q=${query}&key=${apiKey}`
+      )
+      .then((res) => res.data.items);
+    return response;
+  }
 }
 
 export default VideoService;
