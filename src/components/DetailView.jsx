@@ -23,4 +23,4 @@ const DetailView = ({ videoId, videos }) => {
   );
 };
 
-export default DetailView;
+export default React.memo(DetailView);

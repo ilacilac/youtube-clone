@@ -17,4 +17,4 @@ const VideosList = ({ videos, twoCol }) => {
   );
 };
 
-export default VideosList;
+export default React.memo(VideosList);
