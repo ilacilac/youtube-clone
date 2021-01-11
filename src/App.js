@@ -9,7 +9,7 @@ import VideoService from "./services/VideoService";
 import { useHistory } from "react-router-dom";
 
 function App() {
-  const youtube = new VideoService();
+  const youtube = new VideoService(process.env.REACT_APP_YOUTUBE_API_KEY);
   const [videos, setVideos] = useState([]);
   const [text, setText] = useState("");
   const onChange = (e) => {
