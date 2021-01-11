@@ -5,7 +5,6 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 const VideosListItem = ({ videos, twoCol }) => {
-  console.log(videos);
   return videos.map((video) => (
     <li
       className={cx("videoWrap", {

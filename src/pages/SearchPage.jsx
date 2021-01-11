@@ -2,7 +2,6 @@ import React from "react";
 import VideosList from "../components/VideosList";
 
 const SearchPage = ({ videos, location }) => {
-  console.log(location);
   // const videoId = location.search.split("=")[1];
   return (
     <>

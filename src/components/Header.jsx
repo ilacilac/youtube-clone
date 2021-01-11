@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Search from "./Search";
-const Header = ({ text, onChange, onSubmit, history }) => {
+import { withRouter } from "react-router-dom";
+const Header = ({ text, onChange, onSubmit, onMain }) => {
   return (
     <header>
-      <h1 className={styles.logo}>
+      <h1 className={styles.logo} onClick={onMain}>
         <Link to="/">
           <img src="./images/logo.png" alt="youtube" />
           <span>YouTube</span>
@@ -16,4 +17,4 @@ const Header = ({ text, onChange, onSubmit, history }) => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

@@ -5,21 +5,27 @@ import { BrowserRouter, Route } from "react-router-dom";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import VideoService from "./services/VideoService";
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-function App() {
-  const youtube = new VideoService(process.env.REACT_APP_YOUTUBE_API_KEY);
+function App({ youtube, history }) {
+  console.log(history);
   const [videos, setVideos] = useState([]);
   const [text, setText] = useState("");
   const onChange = (e) => {
     setText(e.target.value);
   };
+  const onMain = () => {
+    setText("");
+    youtube.getVideos().then((videos) => setVideos(videos));
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
     youtube.searchVideos(text).then((videos) => setVideos(videos));
+    history.push(`search?q=${text}`);
+    setText("");
   };
+
   useEffect(() => {
     youtube.getVideos().then((videos) => setVideos(videos));
   }, []);
@@ -29,12 +35,13 @@ function App() {
   }, [videos]);
 
   return (
-    <BrowserRouter>
+    <>
       <Header
         onSubmit={onSubmit}
         onChange={onChange}
         text={text}
         videos={videos}
+        onMain={onMain}
       />
       <Route exact path="/" render={() => <Main videos={videos} />} />
       <Route
@@ -45,8 +52,8 @@ function App() {
         path="/search"
         component={(props) => <SearchPage {...props} videos={videos} />}
       />
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);
