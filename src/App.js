@@ -1,7 +1,7 @@
 import "./App.scss";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -14,17 +14,17 @@ function App({ youtube, history }) {
   const onChange = (e) => {
     setText(e.target.value);
   };
-  const onMain = () => {
+  const onMain = useCallback(() => {
     setText("");
     youtube.getVideos().then((videos) => setVideos(videos));
-  };
+  }, []);
 
-  const onSubmit = (e) => {
+  const onSubmit = useCallback((e) => {
     e.preventDefault();
     youtube.searchVideos(text).then((videos) => setVideos(videos));
     history.push(`search?q=${text}`);
     setText("");
-  };
+  }, []);
 
   useEffect(() => {
     youtube.getVideos().then((videos) => setVideos(videos));

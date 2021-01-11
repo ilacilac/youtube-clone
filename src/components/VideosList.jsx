@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import VideosListItem from "./VideosListItem";
 import styles from "./VideosList.module.scss";
 import classNames from "classnames/bind";

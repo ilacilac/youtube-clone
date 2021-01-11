@@ -8,11 +8,9 @@ import { BrowserRouter } from "react-router-dom";
 
 const youtube = new VideoService(process.env.REACT_APP_YOUTUBE_API_KEY);
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App youtube={youtube} />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App youtube={youtube} />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

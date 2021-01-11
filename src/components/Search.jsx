@@ -3,11 +3,10 @@ import styles from "./Search.module.scss";
 import classNames from "classnames/bind";
 import { IconContext } from "react-icons";
 import { MdSearch } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
-const Search = ({ text, onChange, onSubmit, history }) => {
+const Search = ({ text, onChange, onSubmit }) => {
   return (
     <form className={styles.searchForm} onSubmit={onSubmit}>
       <input
@@ -18,12 +17,12 @@ const Search = ({ text, onChange, onSubmit, history }) => {
         className={styles.searchBox}
       />
       <button type="submit" className={cx("searchBtn")}>
-        {/* <Link to={`/search?q=${text}`}> */}
         <span className="a11y-hidden">검색</span>
-        <IconContext.Provider value={{ color: "#b3b3b3" }}>
+        <IconContext.Provider
+          value={{ color: "#b3b3b3", className: "search-icon" }}
+        >
           <MdSearch />
         </IconContext.Provider>
-        {/* </Link> */}
       </button>
     </form>
   );

@@ -4,7 +4,7 @@ import VideosList from "./VideosList";
 
 const DetailView = ({ videoId, videos }) => {
   const videoUrl = `https://www.youtube.com/embed/${videoId}`;
-  console.log(videos);
+
   return (
     <>
       <div className={styles.videoContainer}>

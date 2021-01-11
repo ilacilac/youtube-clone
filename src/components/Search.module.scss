@@ -16,3 +16,15 @@
     background: #303030;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .searchForm {
+    text-align: right;
+    width: 60%;
+    margin: 0;
+    box-sizing: border-box;
+    .searchBox {
+      width: 50%;
+    }
+  }
+}

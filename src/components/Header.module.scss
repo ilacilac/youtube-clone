@@ -7,7 +7,7 @@ header {
   background: #202020;
   .logo {
     display: flex;
-    margin: 0 0 0 20px;
+
     padding: 0;
     align-items: center;
     font-size: 1.7rem;
@@ -23,5 +23,12 @@ header {
     border: none;
     color: #ffffff;
     background: none;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  header {
+    justify-content: space-between;
+    text-align: right;
   }
 }
