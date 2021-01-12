@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Search from "./Search";
 import { withRouter } from "react-router-dom";
-const Header = ({ text, onChange, onSubmit, onMain }) => {
+const Header = memo(({ text, onChange, onSubmit, onMain }) => {
   return (
     <header>
       <h1 className={styles.logo} onClick={onMain}>
@@ -15,6 +15,6 @@ const Header = ({ text, onChange, onSubmit, onMain }) => {
       <Search text={text} onChange={onChange} onSubmit={onSubmit} />
     </header>
   );
-};
+});
 
 export default withRouter(Header);

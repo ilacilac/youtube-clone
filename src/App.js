@@ -11,6 +11,8 @@ function App({ youtube, history }) {
   console.log(history);
   const [videos, setVideos] = useState([]);
   const [text, setText] = useState("");
+  const [query, setQuery] = useState(history.location.pathname);
+
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -19,15 +21,22 @@ function App({ youtube, history }) {
     youtube.getVideos().then((videos) => setVideos(videos));
   }, []);
 
-  const onSubmit = useCallback((e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     youtube.searchVideos(text).then((videos) => setVideos(videos));
     history.push(`search?q=${text}`);
     setText("");
-  }, []);
+  };
 
   useEffect(() => {
     youtube.getVideos().then((videos) => setVideos(videos));
+    console.log("query", query);
+    if (query === "/") {
+      youtube.getVideos().then((videos) => setVideos(videos));
+    } else if (query === "/search") {
+      const locationQuery = history.location.search.split("?q=")[1];
+      youtube.searchVideos(locationQuery).then((videos) => setVideos(videos));
+    }
   }, []);
 
   useEffect(() => {
