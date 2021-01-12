@@ -4,14 +4,14 @@ import Main from "./components/Main";
 import { Route } from "react-router-dom";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 
 function App({ youtube, history }) {
   console.log(history);
   const [videos, setVideos] = useState([]);
   const [text, setText] = useState("");
-  const [query, setQuery] = useState(history.location.pathname);
+  const query = history.location.pathname;
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -30,7 +30,6 @@ function App({ youtube, history }) {
 
   useEffect(() => {
     youtube.getVideos().then((videos) => setVideos(videos));
-    console.log("query", query);
     if (query === "/") {
       youtube.getVideos().then((videos) => setVideos(videos));
     } else if (query === "/search") {
